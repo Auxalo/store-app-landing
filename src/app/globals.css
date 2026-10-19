@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens are the app's own (store-app: src/app/globals.css): green-700 primary on light,
+ * green-500 on dark. Dark mode follows the visitor's system setting in pure CSS: no script.
+ */
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #52525b;
+  --card: #ffffff;
+  --line: #e4e4e7;
+  --tint: #f0fdf4;
+  --tint-strong: #dcfce7;
+  --brand: #15803d;
+  --brand-hover: #166534;
+  --brand-fg: #ffffff;
+  --accent: #22c55e;
+  --ring: #16a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --fg: #fafafa;
+    --muted: #a1a1aa;
+    --card: #141414;
+    --line: #27272a;
+    --tint: #07140c;
+    --tint-strong: #0f2a18;
+    --brand: #22c55e;
+    --brand-hover: #4ade80;
+    --brand-fg: #052e16;
+    --accent: #4ade80;
+    --ring: #4ade80;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-tint: var(--tint);
+  --color-tint-strong: var(--tint-strong);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-fg: var(--brand-fg);
+  --color-accent: var(--accent);
+  --font-sans:
+    var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Bangla needs more line height than Latin to keep matras and conjuncts from touching. */
+html:lang(bn) body {
+  line-height: 1.75;
+}
+html:lang(bn) h1,
+html:lang(bn) h2,
+html:lang(bn) h3 {
+  line-height: 1.35;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* FAQ chevron turns when its <details> opens: no script. */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary .chev {
+  transform: rotate(180deg);
+}
+
+/* The screenshot gallery scrolls sideways on touch and snaps to each phone. */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+.snap-row > * {
+  scroll-snap-align: center;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .floaty {
+    animation: none;
+  }
+}
