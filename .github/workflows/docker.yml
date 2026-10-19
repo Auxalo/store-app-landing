@@ -1,7 +1,7 @@
 name: Docker image
 
 # Builds the production image on GitHub (not on the server) and publishes it to GitHub's container
-# registry. Your host (Dokploy, a VPS, ...) then pulls ghcr.io/auxalo/trade-hishab-landing:latest.
+# registry. Your host (Dokploy, a VPS, ...) then pulls ghcr.io/auxalo/store-app-landing:latest.
 
 on:
   push:

@@ -65,7 +65,7 @@ Pick one. The page needs no environment variables and no database.
 **Vercel or Cloudflare Pages.** Import this repo; the defaults work. Add `hishab.trade` as the domain.
 
 **Docker (Dokploy / a VPS).** `.github/workflows/docker.yml` builds the image on every push to `main` and publishes
-`ghcr.io/auxalo/trade-hishab-landing:latest`. Point your host at that image (port 3000). Optional: set the
+`ghcr.io/auxalo/store-app-landing:latest`. Point your host at that image (port 3000). Optional: set the
 `SUPPORT_WHATSAPP` / `SUPPORT_EMAIL` repository variables for the footer, and a `DEPLOY_WEBHOOK_URL` secret to
 trigger a redeploy.
 
